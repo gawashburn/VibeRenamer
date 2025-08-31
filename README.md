@@ -84,6 +84,7 @@ Renamed: foo4 -> /private/tmp/Foo-4
 Renamed: foo5 -> /private/tmp/Foo-5
 Renamed: foo6 -> /private/tmp/Foo-6
 All files renamed successfully.
+❯
 ```
 
 ## Future work
@@ -92,6 +93,7 @@ After some experimentation, I found that the current macOS Foundation Models
 are not as capable as would be ideal when presented with
  * source filenames that lack relative uniformity,
  * prompts requiring reasoning about character classes.
+
 This is perhaps not surprising given that even 
 [state-of-the-art language models struggle with counting letters](https://minimaxir.com/2025/08/llm-blueberry/).
 Though regular expressions cannot count either, so perhaps that is being 
