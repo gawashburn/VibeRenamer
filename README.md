@@ -8,18 +8,18 @@ ensuring that you have the perfect match.  For all the other times, you can
 turn to `viberenamer`.
 
 `viberenamer` was primarily born out of sheer laziness when confronted with
-having to craft dozens of throwawey regular expressions when tidying up
+having to craft dozens of throwaway regular expressions when tidying up
 ancient filesystem cruft.  It was also an opportunity to exercise the new
 Foundation Models framework available in macOS Tahoe.  And of course,
-`viberenamer` itself was about 95% vibecoded using thge new 
-[ChatGPT 5](https://openai.com/gpt-5/) coding assistent provided in the 
-latest XCode betas.
+`viberenamer` itself was about 95% vibecoded using the new
+[ChatGPT 5](https://openai.com/gpt-5/) coding assistant provided in the
+Xcode 26 beta.
 
 `viberenamer` is also quite purposely limited in scope.  There are other tools
 that you can use to connect LLMs to your shell to orchestrate arbitrary
-command invocations.  But that introduces a signficantly larger burden on the
+command invocations.  But that introduces a significantly larger burden on the
 user to verify the actions being taken.  `viberenamer` presents a proposed
-renaming and asks the user to accept or reject the propsal.  If accepted, the
+renaming and asks the user to accept or reject the proposal.  If accepted, the
 only thing that can happen is that the files will be renamed.
 
 `viberenamer` is also different than tools like
@@ -30,13 +30,22 @@ attempt to understand the file content to inform the renaming.
 It is worth emphasizing that, so far, more time was spent writing this
 README file than on the actual code.  If you have any doubts, then you
 probably should not be using `viberenamer` yet.  Also, as `viberenamer`
-makes of Apple's new Foundation Models framework, at this time it can
+makes use of Apple's new Foundation Models framework, at this time it can
 only be built and run on macOS Tahoe (26) or later.
 
 ## Table of contents
+ - [Project status](#project-status)
  - [Usage](#usage)
- - [Future work](#future-work)
+ - [Retrospective](#retrospective)
  - [Development](#development)
+
+## Project status
+
+`viberenamer` is no longer under active development.  It was useful for
+an immediate need and as an educational experience, but also a dead-end
+given the now-obvious explosion of the LLM command-line harness ecosystem.
+Such a focused tool is not really worthwhile when current-day LLM harnesses
+can do everything `viberenamer` provides and more.
 
 ## Usage
 
@@ -87,7 +96,7 @@ All files renamed successfully.
 ❯
 ```
 
-## Future work
+## Retrospective
 
 After some experimentation, I found that the current macOS Foundation Models
 are not as capable as would be ideal when presented with
@@ -101,29 +110,22 @@ unfair.
 
 I was unable to find a system card or details on Apple's Foundation Model LLM.
 It might be possible a "reasoning" model could handle more renaming prompts
-better.  On the otherhand, there seems to still be some debate on the 
-the [efficacy of chain-of-thought reasoning](https://machinelearning.apple.com/research/illusion-of-thinking)
+better.  On the other hand, there seems to still be some debate on the
+[efficacy of chain-of-thought reasoning](https://machinelearning.apple.com/research/illusion-of-thinking).
 
-It might be worth extending `viberenamer` to allow making calls to
-[Ollama](https://ollama.com/) to compare performance and behavior with
-other models.
+In hindsight, chasing alternate model backends would have moved the project
+toward becoming a small LLM harness, which is exactly the space that has since
+matured around it.
 
-Currently, the output of `viberenamer` is a bit verbose.  It would probably
-benefit from only reporting failures rather than all the successful checks.
-
-Overall, the `viberenamer` code could benefit from some tasteful human
-revision.
+There are ordinary polish issues here too.  The output is verbose and the code
+could benefit from some tasteful human revision.
 
 ## Development
 
-`vibernamer` is currently written in [Swift](https://www.swift.org/) to make
+`viberenamer` is written in [Swift](https://www.swift.org/) to make
 interfacing with Apple's local Foundation Models more straightforward.
-Given that it may be worth extending it to support other model providers, it
-could make sense to just rewrite it all in [Rust](https://www.rust-lang.org/)
-at some point in the future.  That could also make it easier to support
-other platforms.
 
-At present, you'll need to be running macOS Tahoe (26) and have an XCode 26
-beta installed to build and run `viberenamer`.
+At present, you'll need to be running macOS Tahoe (or newer) and have
+Xcode 26 (or newer) installed to build and run `viberenamer`.
 
-Contributions and bug reports are welcome.
+There is no active development roadmap.
